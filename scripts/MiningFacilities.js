@@ -17,11 +17,13 @@ export const MiningFacilities = () => {
     if (spaceCart.selectedGovernor) {
         // Use .map() for converting objects to <li> elements
         const listItems = facilities.map(location => {
-            let selected = ``
-            if (spaceCart.selectedFacility === location.id) {
-                selected = `selected="selected"`
+            if (location.active === true) {
+                let selected = ``
+                if (spaceCart.selectedFacility === location.id) {
+                    selected = `selected="selected"`
+                }
+                return `<option value="${location.id}" ${selected}>${location.name}</option>`
             }
-            return `<option value="${location.id}" ${selected}>${location.name}</option>`
         })
         html += listItems.join("")
     }

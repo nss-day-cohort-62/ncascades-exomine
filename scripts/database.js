@@ -1,7 +1,7 @@
 const database = {
 governors: [
     { id: 1, name: "Ceres", colonyId: 1, active: true},
-    { id: 2, name: "Pamona", colonyId: 2, active: true},
+    { id: 2, name: "Pamona", colonyId: 2, active: false},
     { id: 3, name: "Minerva", colonyId: 3, active: true},
     { id: 4, name: "Sol", colonyId: 4, active: true},
     { id: 5, name: "Luna", colonyId: 5, active: true},
@@ -43,14 +43,12 @@ facilityMinerals: [
     { id: 10, mineralId: 1, miningFacilityID: 3, amount: 24},
     { id: 11, mineralId: 5, miningFacilityID: 4, amount: 20},
     { id: 12, mineralId: 4, miningFacilityID: 4, amount: 12},
-    { id: 13, mineralId: 3, miningFacilityID: 4, amount: 35},
-    { id: 14, mineralId: 2, miningFacilityID: 5, amount: 20},
-    { id: 15, mineralId: 1, miningFacilityID: 5, amount: 12},
-    { id: 16, mineralId: 5, miningFacilityID: 5, amount: 35},
+    { id: 13, mineralId: 3, miningFacilityID: 4, amount: 0},
+    { id: 14, mineralId: 2, miningFacilityID: 5, amount: 8},
+    { id: 15, mineralId: 1, miningFacilityID: 5, amount: 6},
+    { id: 16, mineralId: 5, miningFacilityID: 5, amount: 4},
 ],
-purchasedMinerals: [
-    { id: 1, colonyId: 5, mineralId: 5, purchasedAmount: 2},
-],
+purchasedMinerals: [],
     transientState: {}
 }
 
@@ -108,8 +106,16 @@ export const getSpaceCart = () => {
 }
 
 export const purchaseMineral = () => {
-
+    const newOrder = { ...database.transientState }
+    const lastIndex = database.purchasedMinerals.length - 1
+    if (database.purchasedMinerals.length === 0) {
+        newOrder.id = 1
+    } else {
+        newOrder.id = database.purchasedMinerals[lastIndex].id + 1
+    }
+    database.purchasedMinerals.push(newOrder)
+    database.transientState = {}
         // Broadcast custom event to entire documement so that the
         // application can re-render and update state
-        document.dispatchEvent( new CustomEvent("stateChanged") )
+    document.dispatchEvent( new CustomEvent("stateChanged") )
     }
