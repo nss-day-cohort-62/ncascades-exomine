@@ -1,8 +1,8 @@
-import { Governors } from "Governers.js"
-import { Colonies } from "./Colonies.js"
+import { Governors } from "./Governors.js"
+/* import { Colonies } from "./Colonies.js"
 import { MiningFacilities } from "./MiningFacilities.js"
 import { Order } from "./Order.js"
-import { FacilityMinerals } from "./FacilityMinerals.js"
+import { FacilityMinerals } from "./FacilityMinerals.js" */
 
 export const Exomine = () => {
     return `
@@ -11,22 +11,22 @@ export const Exomine = () => {
     <article class="selections">
     <section class="choice__governor">
     <label>Choose a governor</label>
-    ${Governors}
+    ${Governors()}
     </section>
     <section class="choice__facility">
     <label>Choose a facility</label>
-    ${MiningFacilities}
+    ${MiningFacilities()}
     </section>
     </article>
-    ${Colonies}
+    ${Colonies()}
     </section>
     <section class="inventory__order">
     <article class="selected__facility">
-    ${FacilityMinerals}
+    ${FacilityMinerals()}
     </article>
     <article class="SpaceCart">
     <h3>Space Cart</h3>
-    ${Order}
+    ${Order()}
     <button class="button" id="orderButton">Purchase Mineral</button>
     </article>
     </section>
