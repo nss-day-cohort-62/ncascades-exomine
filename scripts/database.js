@@ -80,7 +80,7 @@ export const setPurchasedMineralAmount = (purchasedMineralAmountId) => {
 }
 
 export const getFacilities = () => {
-    return database.facilities.map(facility => ({...facility}))
+    return database.miningFacilities.map(facility => ({...facility}))
 }
 
 export const getGovernors = () => {
@@ -99,8 +99,12 @@ export const getFacilityMinerals = () => {
     return database.facilityMinerals.map(facilityMineral => ({...facilityMineral}))
 }
 
-export const getpurchasedMinerals = () => {
+export const getPurchasedMinerals = () => {
     return database.purchasedMinerals.map(resource => ({...resource}))
+}
+
+export const getSpaceCart = () => {
+    return database.transientState
 }
 
 export const purchaseMineral = () => {
