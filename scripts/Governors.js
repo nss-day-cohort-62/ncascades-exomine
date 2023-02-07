@@ -1,7 +1,12 @@
-import { getGovernors, setGovernor } from "./database.js"
+import { getGovernors, setGovernor, getSpaceCart } from "./database.js"
 
 const covertGovernorsToListElement = (governor) => {
-    return `<option value="${governor.id}">${governor.name}</option>`
+    const spaceCart = getSpaceCart()
+    let selected = ``
+    if (spaceCart.selectedGovernor === governor.id) {
+        selected = `selected="selected"`
+    }
+    return `<option value="${governor.id}" ${selected} >${governor.name}</option>`
 }
 
 export const Governors = () => {

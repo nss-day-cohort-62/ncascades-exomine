@@ -5,9 +5,9 @@ governors: [
     { id: 3, name: "Minerva", colonyId: 3, active: true},
     { id: 4, name: "Sol", colonyId: 4, active: true},
     { id: 5, name: "Luna", colonyId: 5, active: true},
-    { id: 6, name: "Vulcan", colonyId: 6, active: true},
-    { id: 7, name: "Fortuna", colonyId: 7, active: true},
-    { id: 8, name: "Apollo", colonyId: 8, active: true},
+    { id: 6, name: "Vulcan", colonyId: 1, active: true},
+    { id: 7, name: "Fortuna", colonyId: 2, active: true},
+    { id: 8, name: "Apollo", colonyId: 3, active: true},
 ],
 colonies: [
     { id: 1, name: "Jupiter" },
@@ -25,7 +25,7 @@ minerals: [
 ],
 miningFacilities: [
     { id: 1, name: "Ena", active: true},
-    { id: 2, name: "Dyo", active: true},
+    { id: 2, name: "Dyo", active: false},
     { id: 3, name: "Triah", active: true},
     { id: 4, name: "Tesserah", active: true},
     { id: 5, name: "Pente", active: true }

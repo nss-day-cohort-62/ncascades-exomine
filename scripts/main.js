@@ -52,4 +52,4 @@ const renderAllHTML = () => {
 
 renderAllHTML()
 
-mainContainer.addEventListener("stateChanged", CustomEvent => {renderAllHTML(CustomEvent)})
+document.addEventListener("stateChanged", CustomEvent => {renderAllHTML()})
