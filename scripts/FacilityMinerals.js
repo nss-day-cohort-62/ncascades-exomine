@@ -1,30 +1,48 @@
-import { getMinerals, getFacilityMinerals, getFacilities, getSpaceCart, setMineral } from "./database.js"
-
-/*
-    Facility Minerals (of selected facility)
-    Show ${facilityMineral.amount} tons of ${mineral.name}
-
-*/
-
-const minerals = getMinerals()
+import { getMinerals, getFacilityMinerals, getFacilities, getSpaceCart, setMineral, setPurchasedMineralAmount } from "./database.js"
 
 export const Minerals = () => {
+    /*
+        Facility Minerals (of selected facility) DONE
+        Show ${facilityMineral.amount} tons of ${mineral.name} 
+            iterate through list of facilities to get facility.name by matching facility.id to spaceCart.selectedfacility
+            iterate through list of mineralFacilities to get facilityMineral.amount by matching mineralFacility.miningFacilityId to spaceCart.selectedFacility
+            iterate through list of minerals to get mineral.name by matching mineralFacility.mineralId to mineral.id.
+            return results as HTML string with radio buttons.
+    */
+    const minerals = getMinerals()
     const spaceCart = getSpaceCart()
     const facilities = getFacilities()
+    const facilityMinerals = getFacilityMinerals()
     let selectedFacility = ``
+    let mineralListHTML = ``
     for (const facility of facilities) {
         if (spaceCart.selectedFacility === facility.id) {
             selectedFacility = ` of ${facility.name}`
         }
     }
-    let html = `<h3>Facility Minerals${selectedFacility}</h3><ul>`
-    
-    const listItems = minerals.map(resource => {
-        return `<li id="${resource.id}">${resource.name}</li>`
-    })
-
-    html += listItems.join("")
-    html += '</ul>'
-
-    return html
+    mineralListHTML = `<h3>Facility Minerals${selectedFacility}</h3><ul>`
+    for (const facilityMineral of facilityMinerals) {
+        if (spaceCart.selectedFacility === facilityMineral.miningFacilityID) {
+            for (const mineral of minerals) {
+                let checked = ``
+                if (spaceCart.selectedMineral === mineral.id) {
+                    checked = `checked="checked"`
+                }
+                if (mineral.id === facilityMineral.mineralId) {
+                    if (facilityMineral.amount > 0) {
+                        mineralListHTML += `<li><input type="radio" name="selectedMineral" value="${mineral.id}" ${checked} >${facilityMineral.amount} tons of ${mineral.name}</li>`
+                    }
+                }
+            }
+        }
+    }
+    mineralListHTML += `</ul>`
+    return mineralListHTML
 }
+
+document.addEventListener("click", event => {
+    if (event.target.name === "selectedMineral") {
+        setMineral(parseInt(event.target.value))
+        setPurchasedMineralAmount(1)
+    }
+})

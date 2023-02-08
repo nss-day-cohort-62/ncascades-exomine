@@ -2,7 +2,7 @@ import { Governors } from "./Governors.js"
 import { MiningFacilities } from "./MiningFacilities.js"
 import { Colonies } from "./Colonies.js"
 import { Minerals } from "./FacilityMinerals.js"
-/*import { Order } from "./Order.js" */
+import { Order } from "./Order.js"
 
 export const Exomine = () => {
     return `
@@ -26,7 +26,7 @@ export const Exomine = () => {
     </article>
     <article class="SpaceCart">
     <h3>Space Cart</h3>
-
+    ${Order()}
     <button class="button" id="orderButton">Purchase Mineral</button>
     </article>
     </section>
