@@ -1,4 +1,4 @@
-import { getMinerals, getFacilityMinerals, getFacilities, getSpaceCart, setMineral, setPurchasedMineralAmount } from "./database.js"
+import { getMinerals, getFacilityMinerals, getFacilities, getTransientState, setMineral, setPurchasedMineralAmount, getSpaceCart } from "./database.js"
 
 export const Minerals = () => {
     /*
@@ -10,25 +10,26 @@ export const Minerals = () => {
             return results as HTML string with radio buttons.
     */
     const minerals = getMinerals()
-    const spaceCart = getSpaceCart()
+    const transientState = getTransientState()
     const facilities = getFacilities()
     const facilityMinerals = getFacilityMinerals()
+    const spaceCart = getSpaceCart()
     let selectedFacility = ``
     let mineralListHTML = ``
     for (const facility of facilities) {
-        if (spaceCart.selectedFacility === facility.id) {
+        if (transientState.selectedFacility === facility.id) {
             selectedFacility = ` of ${facility.name}`
         }
     }
     mineralListHTML = `<h3>Facility Minerals${selectedFacility}</h3><ul>`
     for (const facilityMineral of facilityMinerals) {
-        if (spaceCart.selectedFacility === facilityMineral.miningFacilityID) {
+        if (transientState.selectedFacility === facilityMineral.miningFacilityID) {
             for (const mineral of minerals) {
                 let checked = ``
-                if (spaceCart.selectedMineral === mineral.id) {
-                    checked = `checked="checked"`
-                }
                 if (mineral.id === facilityMineral.mineralId) {
+                    if (spaceCart.selectedMineral === mineral.id) {
+                        checked = `checked="checked"`
+                    }
                     if (facilityMineral.amount > 0) {
                         mineralListHTML += `<li><input type="radio" name="selectedMineral" value="${mineral.id}" ${checked} >${facilityMineral.amount} tons of ${mineral.name}</li>`
                     }
