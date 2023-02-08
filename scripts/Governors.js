@@ -1,10 +1,10 @@
-import { getGovernors, setGovernor, getSpaceCart } from "./database.js"
+import { getGovernors, setGovernor, getTransientState, setColony } from "./database.js"
 
 const covertGovernorsToListElement = (governor) => {
-    const spaceCart = getSpaceCart()
+    const transientState = getTransientState()
     let selected = ``
     if (governor.active === true) {
-        if (spaceCart.selectedGovernor === governor.id) {
+        if (transientState.selectedGovernor === governor.id) {
             selected = `selected="selected"`
         }
         return `<option value="${governor.id}" ${selected} >${governor.name}</option>`
@@ -14,12 +14,13 @@ const covertGovernorsToListElement = (governor) => {
 export const Governors = () => {
     const governors = getGovernors()
     return `<select id="select__governor" name="selectedGovernor">
-    <option value="">Chose a governor...</option>${governors.map(covertGovernorsToListElement).join("")}
+    <option value="">Choose a governor...</option>${governors.map(covertGovernorsToListElement).join("")}
     </select>`
 }
 
 document.addEventListener("change", changeEvent => {
     if (changeEvent.target.id === "select__governor") {
         setGovernor(parseInt(changeEvent.target.value))
+        setColony(parseInt(changeEvent.target.value))
     }
 })
