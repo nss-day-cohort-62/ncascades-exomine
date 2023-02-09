@@ -149,8 +149,6 @@ export const purchaseMineral = () => {
     }
     if (existingMineral === false) {
         database.purchasedMinerals.push(newOrder)
-    } else {
-        console.log(database.purchasedMinerals)
     }
     database.spaceCart = {}
     database.spaceCart.selectedColony = database.transientState.selectedColony
