@@ -26,9 +26,9 @@ export const Colonies = () => {
                 for (const mineral of minerals) {
                     if (purchase.selectedMineral === mineral.id && purchase.selectedColony === governor.colonyId) {
                         if (purchase.selectedPurchasedMineralAmount === 1) {
-                            inventoryHTML += `<li>${purchase.selectedPurchasedMineralAmount} ton of ${mineral.name}.</li>`
+                            inventoryHTML += `<li>${purchase.selectedPurchasedMineralAmount} ton of ${mineral.name}</li>`
                         } else {
-                            inventoryHTML += `<li>${purchase.selectedPurchasedMineralAmount} tons of ${mineral.name}.</li>`
+                            inventoryHTML += `<li>${purchase.selectedPurchasedMineralAmount} tons of ${mineral.name}</li>`
                         }
                     }
                 }

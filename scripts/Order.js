@@ -10,7 +10,7 @@ export const Order = () => {
         if (spaceCart.selectedMineral === mineral.id) {
             for (const facility of facilities) {
                 if (transientState.selectedFacility === facility.id)
-                    allOrderHTML = `1 ton of ${mineral.name} from ${facility.name}`
+                    allOrderHTML = `<div class="order__item">1 ton of ${mineral.name} from ${facility.name}</div>`
             }
         }
     }

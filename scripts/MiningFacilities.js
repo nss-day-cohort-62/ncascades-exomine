@@ -13,7 +13,7 @@ document.addEventListener(
 
 export const MiningFacilities = () => {
     const transientState = getTransientState()
-    let html = `<select id="facility_choice"><option value="0">Choose a Facility...</option>`
+    let html = `<select class="dropdown" id="facility_choice"><option value="0">Choose a facility...</option>`
     if (transientState.selectedGovernor) {
         // Use .map() for converting objects to <li> elements
         const listItems = facilities.map(location => {

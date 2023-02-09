@@ -1,0 +1,62 @@
+@import "details.css";
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import url("/images/Exomine-cropped.png");
+
+/*Typography /*
+--------------------------------------------------------------*/
+body,
+input,
+textarea {
+	color: #f3fadc;
+	font-family: 'Space Grotesk', sans-serif;
+	font-size: 14px;
+	line-height: 1.5;
+}
+
+h1,h2,h3,h4,h5,h6,label {
+  color: rgb(248, 243, 220);
+  font-family: 'Space Grotesk', sans-serif;
+  letter-spacing: 2px;
+}
+
+h1 {
+    text-transform: uppercase;
+    text-indent: 2rem;
+}
+
+h2 {
+    margin-bottom: 0px;
+}
+
+h3{
+    text-align: center;
+    margin-bottom: 0px;
+}
+
+body {
+	background-image: url("https://images.unsplash.com/photo-1465158753229-aa725fff85a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1744&q=80");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+
+ul {
+    color: #f3fadc;
+    font-family: 'Space Grotesk', sans-serif;
+    letter-spacing: 2px;
+    list-style: none;
+    padding-inline-start: 10px;
+}
+
+#orderButton {
+    margin: 1rem 2rem;
+    padding: 0.5rem;
+    color: #373E6A;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 30px;
+    background-color: rgb(193, 145, 133);
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    text-align: center;
+}
