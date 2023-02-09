@@ -6,7 +6,7 @@ import { Order } from "./Order.js"
 
 export const Exomine = () => {
     return `
-    <h1>Solar System Mining Marketplace</h1>
+    <img class="logo" src="./images/Exomine-cropped.png">
     <section class="colony__buyer">
     <article class="selections">
     <section class="choice__governor">
@@ -18,7 +18,9 @@ export const Exomine = () => {
     ${MiningFacilities()}
     </section>
     </article>
+    <div class="colony__inventory">
     ${Colonies()}
+    </div>
     </section>
     <section class="inventory__order">
     <article class="selected__facility">

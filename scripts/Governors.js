@@ -13,7 +13,7 @@ const covertGovernorsToListElement = (governor) => {
 
 export const Governors = () => {
     const governors = getGovernors()
-    return `<select id="select__governor" name="selectedGovernor">
+    return `<select class="dropdown" id="select__governor" name="selectedGovernor">
     <option value="">Choose a governor...</option>${governors.map(covertGovernorsToListElement).join("")}
     </select>`
 }

@@ -1,0 +1,115 @@
+/*   <h1>Solar System Mining Marketplace</h1>
+    <section class="colony__buyer">
+    <article class="selections">
+    <section class="choice__governor">
+    <label>Choose a governor</label>
+    ${Governors()}
+    </section>
+    <section class="choice__facility">
+    <label>Choose a facility</label>
+    ${MiningFacilities()}
+    </section>
+    </article>
+    ${Colonies()}
+    </section>
+    <section class="inventory__order">
+    <article class="selected__facility">
+    ${Minerals()}
+    </article>
+    <article class="SpaceCart">
+    <h3>Space Cart</h3>
+    ${Order()}
+    <button class="button" id="orderButton">Purchase Mineral</button>
+    </article>
+    </section> */
+
+.logo {
+    width: 30%;
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+.colony__buyer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    
+    
+}
+
+.inventory__order {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+select {
+    font-family: 'Space Grotesk', sans-serif;
+    background-color: rgb(193, 145, 133);
+    color: #373e6a;
+    border-radius: 0.25rem;
+    font-size: 14px;
+	line-height: 1.5;
+    width: 170px;
+}
+
+#facility_choice {
+    margin-left: 20px;
+}
+
+#select__governor{
+    margin-left: 8px;
+}
+
+.colony__inventory {
+    display: flex;
+    flex-direction: column;
+}
+
+.SpaceCart {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: center;
+    background-color: rgba(5, 10, 48, .6);
+    padding: 10px 0px;
+    margin-right: 60px;
+}
+
+.order__item {
+    display: flex;
+    font-family: 'Space Grotesk', sans-serif;
+    color: rgb(248, 243, 220);
+    text-align: center;
+    flex-wrap:wrap;
+    align-self: center;
+    max-width: 85%
+}
+
+.selected__facility {
+    display: grid;
+    background-color: rgba(5, 10, 48, .6);
+    padding: 10px 100px;
+    height: 180px;
+    flex-basis: 35%;
+    
+}
+
+.selections {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex-basis:50%;
+}
+
+input {
+    margin-right: 15px;
+    margin-left: 50px;
+}
+
+.selected__facility_mineral {
+    margin-bottom: 0px;
+}
